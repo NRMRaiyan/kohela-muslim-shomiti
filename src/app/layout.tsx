@@ -32,15 +32,15 @@ const notoSerifBengali = Noto_Serif_Bengali({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kohela Muslim Shomitti | কোহেলা মুসলিম সমিতি",
-    template: "%s | Kohela Muslim Shomitti",
+    default: "Kohela Muslim Samity | কহেলা মুসলিম সমিতি",
+    template: "%s | Kohela Muslim Samity",
   },
   description:
-    "Official website of Kohela Muslim Shomitti (কোহেলা মুসলিম সমিতি) — news, notices, events, committee, and history of our community.",
+    "Official website of Kohela Muslim Samity (কহেলা মুসলিম সমিতি) — news, notices, events, committee, and history of our community.",
   openGraph: {
-    title: "Kohela Muslim Shomitti | কোহেলা মুসলিম সমিতি",
+    title: "Kohela Muslim Samity | কহেলা মুসলিম সমিতি",
     description:
-      "Official website of Kohela Muslim Shomitti — news, notices, events, committee, and history of our community.",
+      "Official website of Kohela Muslim Samity — news, notices, events, committee, and history of our community.",
     type: "website",
   },
 };
