@@ -49,7 +49,7 @@ export default function Hero({
 
       <div className="relative container-page pt-16 pb-28 sm:pt-24 sm:pb-36 text-center">
         <span className="eyebrow inline-block mb-5">
-          {locale === "bn" ? "যোহেলা, বাংলাদেশ" : "Kohela, Bangladesh"}
+          {locale === "bn" ? "কহেলা, বাংলাদেশ" : "Kohela, Bangladesh"}
         </span>
         <h1 className="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-3xl mx-auto">
           {name}
