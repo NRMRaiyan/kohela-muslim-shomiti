@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  /* ---- Kohela Muslim Shomitti design tokens ---- */
+  --color-ink: #16241d;          /* near-black green-charcoal text */
+  --color-paper: #f3f5ee;        /* pale sage-tinted paper background */
+  --color-paper-warm: #ece8da;   /* slightly deeper warm panel */
+  --color-forest: #1f4d3a;       /* primary deep green */
+  --color-forest-dark: #123325;
+  --color-gold: #c9962c;         /* mustard-field accent */
+  --color-gold-light: #e4b95a;
+  --color-brick: #b4502a;        /* muted brick-orange, for notices/alerts */
+  --color-sage-line: #dce3d3;    /* hairline / divider */
+  --color-cream-card: #fbf9f1;
+
+  --font-display: "Fraunces", "Noto Serif Bengali", serif;
+  --font-body: "Source Sans 3", "Noto Sans Bengali", sans-serif;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+  --color-paper-warm: var(--color-paper-warm);
+  --color-forest: var(--color-forest);
+  --color-forest-dark: var(--color-forest-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-brick: var(--color-brick);
+  --color-sage-line: var(--color-sage-line);
+  --color-cream-card: var(--color-cream-card);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+* {
+  border-color: var(--color-sage-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.font-bengali {
+  font-family: var(--font-noto-sans-bengali), var(--font-body);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+.font-bengali h1, .font-bengali h2, .font-bengali h3, .font-bengali h4, .font-bengali .font-display {
+  font-family: var(--font-noto-serif-bengali), var(--font-display);
+}
+
+/* ---- Signature motif: pointed-arch (mihrab-inspired) shapes ---- */
+.arch-top {
+  border-radius: 999px 999px 8px 8px / 90px 90px 8px 8px;
+}
+
+.arch-clip-bottom {
+  clip-path: polygon(
+    0 0, 100% 0, 100% 82%,
+    92% 88%, 84% 92%, 76% 95%, 68% 97%, 60% 98.5%,
+    52% 99.3%, 50% 99.5%, 48% 99.3%,
+    40% 98.5%, 32% 97%, 24% 95%, 16% 92%, 8% 88%,
+    0 82%
+  );
+}
+
+.divider-arch {
+  position: relative;
+  height: 28px;
+}
+.divider-arch svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.container-page {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-gold);
+  color: var(--color-forest-dark);
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn-primary:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  transition: background 0.15s ease;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.card {
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-sage-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 700;
+}
