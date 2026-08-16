@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+//import image from "next/Image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -28,9 +29,12 @@ export default function Navbar({
     <header className="sticky top-0 z-40 bg-[var(--color-forest)]/97 backdrop-blur text-white border-b border-black/10">
       <div className="container-page flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2.5 min-w-0">
-          <span className="w-9 h-9 shrink-0 rounded-full bg-[var(--color-gold)] text-[var(--color-forest-dark)] flex items-center justify-center font-display font-bold text-lg">
+          {/* <span className="w-9 h-9 shrink-0 rounded-full bg-[var(--color-gold)] text-[var(--color-forest-dark)] flex items-center justify-center font-display font-bold text-lg">
             ক
-          </span>
+          </span> */}
+          {/* <span className="w-9 h-9 shrink-0 rounded-full overflow-hidden relative bg-[var(--color-gold)]">
+            <Image src="/logo.png" alt={name} fill className="object-cover" />
+          </span> */}
           <span className="font-display font-semibold text-lg leading-tight truncate">
             {name}
           </span>
