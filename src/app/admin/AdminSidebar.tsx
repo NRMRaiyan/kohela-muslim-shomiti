@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -13,6 +14,8 @@ import {
   Mail,
   LogOut,
   ExternalLink,
+  Menu,
+  X,
 } from "lucide-react";
 import { logout } from "./auth-actions";
 
@@ -27,23 +30,24 @@ const links = [
   { href: "/admin/settings", label: "Site Settings", Icon: Settings },
 ];
 
-export default function AdminSidebar({ userName }: { userName: string }) {
+function SidebarContent({ userName, onNavigate }: { userName: string; onNavigate?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 shrink-0 bg-[var(--color-forest-dark)] text-white/90 min-h-screen flex flex-col">
+    <>
       <div className="p-6 border-b border-white/10">
-        <div className="font-display text-lg font-semibold text-white">Kohela Samity</div>
+        <div className="font-display text-lg font-semibold text-white">Kohela Shomitti</div>
         <div className="text-xs text-white/50 mt-0.5">Committee Dashboard</div>
       </div>
 
-      <nav className="flex-1 py-4 px-3 flex flex-col gap-0.5">
+      <nav className="flex-1 py-4 px-3 flex flex-col gap-0.5 overflow-y-auto">
         {links.map(({ href, label, Icon, exact }) => {
           const active = exact ? pathname === href : pathname?.startsWith(href);
           return (
             <Link
               key={href}
               href={href}
+              onClick={onNavigate}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 active
                   ? "bg-[var(--color-gold)] text-[var(--color-forest-dark)]"
@@ -73,6 +77,66 @@ export default function AdminSidebar({ userName }: { userName: string }) {
           </button>
         </form>
       </div>
-    </aside>
+    </>
+  );
+}
+
+export default function AdminSidebar({ userName }: { userName: string }) {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // Auto-close the drawer whenever the route changes (e.g. after tapping a link)
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Prevent background scroll while the drawer is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <>
+      {/* Mobile top bar */}
+      <div className="lg:hidden sticky top-0 z-30 flex items-center justify-between bg-[var(--color-forest-dark)] text-white px-4 h-14 border-b border-white/10">
+        <span className="font-display font-semibold">Kohela Shomitti</span>
+        <button onClick={() => setOpen(true)} aria-label="Open menu" className="p-2">
+          <Menu size={22} />
+        </button>
+      </div>
+
+      {/* Overlay */}
+      <div
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+        className={`lg:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
+          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Sliding drawer (mobile) */}
+      <aside
+        className={`lg:hidden fixed inset-y-0 left-0 z-50 w-72 max-w-[80vw] bg-[var(--color-forest-dark)] text-white/90 flex flex-col transform transition-transform duration-300 ease-in-out ${
+          open ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <button
+          onClick={() => setOpen(false)}
+          aria-label="Close menu"
+          className="absolute top-4 right-4 p-1.5 text-white/70 hover:text-white"
+        >
+          <X size={20} />
+        </button>
+        <SidebarContent userName={userName} onNavigate={() => setOpen(false)} />
+      </aside>
+
+      {/* Desktop sidebar */}
+      <aside className="hidden lg:flex w-64 shrink-0 bg-[var(--color-forest-dark)] text-white/90 min-h-screen flex-col">
+        <SidebarContent userName={userName} />
+      </aside>
+    </>
   );
 }
