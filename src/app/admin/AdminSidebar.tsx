@@ -33,7 +33,7 @@ export default function AdminSidebar({ userName }: { userName: string }) {
   return (
     <aside className="w-64 shrink-0 bg-[var(--color-forest-dark)] text-white/90 min-h-screen flex flex-col">
       <div className="p-6 border-b border-white/10">
-        <div className="font-display text-lg font-semibold text-white">Kohela Shomitti</div>
+        <div className="font-display text-lg font-semibold text-white">Kohela Samity</div>
         <div className="text-xs text-white/50 mt-0.5">Committee Dashboard</div>
       </div>
 
