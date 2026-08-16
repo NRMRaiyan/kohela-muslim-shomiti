@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-//import image from "next/Image";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -32,9 +32,9 @@ export default function Navbar({
           {/* <span className="w-9 h-9 shrink-0 rounded-full bg-[var(--color-gold)] text-[var(--color-forest-dark)] flex items-center justify-center font-display font-bold text-lg">
             ক
           </span> */}
-          {/* <span className="w-9 h-9 shrink-0 rounded-full overflow-hidden relative bg-[var(--color-gold)]">
+          <span className="w-9 h-9 shrink-0 rounded-full overflow-hidden relative bg-[var(--color-gold)]">
             <Image src="/logo.png" alt={name} fill className="object-cover" />
-          </span> */}
+          </span>
           <span className="font-display font-semibold text-lg leading-tight truncate">
             {name}
           </span>
