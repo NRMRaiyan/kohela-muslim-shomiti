@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* ---- Kohela Muslim Shomitti design tokens ---- */
+  /* ---- Kohela Muslim Samity design tokens ---- */
   --color-ink: #16241d;          /* near-black green-charcoal text */
   --color-paper: #f3f5ee;        /* pale sage-tinted paper background */
   --color-paper-warm: #ece8da;   /* slightly deeper warm panel */
