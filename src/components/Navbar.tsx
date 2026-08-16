@@ -33,7 +33,7 @@ export default function Navbar({
             ক
           </span> */}
           <span className="w-9 h-9 shrink-0 rounded-full overflow-hidden relative bg-[var(--color-gold)]">
-            <Image src="/logo.png" alt={name} fill className="object-cover" />
+            <Image src="/logo.JPG" alt={name} fill className="object-cover" />
           </span>
           <span className="font-display font-semibold text-lg leading-tight truncate">
             {name}
