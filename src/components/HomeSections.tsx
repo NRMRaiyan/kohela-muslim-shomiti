@@ -71,6 +71,10 @@ export default function HomeSections({
                 ))}
               </div>
             )}
+
+            <Link href="/notices" className="sm:hidden mt-4 inline-block text-sm font-semibold text-[var(--color-forest)]">
+              {t("view_all")} →
+            </Link>
           </div>
 
           <div>
@@ -94,8 +98,11 @@ export default function HomeSections({
                   <EventCard key={e.id} item={e} />
                   ))}
               </div>
-              
             )}
+
+            <Link href="/events" className="sm:hidden mt-4 inline-block text-sm font-semibold text-[var(--color-forest)]">
+              {t("view_all")} →
+            </Link>
           </div>
         </div>
       </section>
