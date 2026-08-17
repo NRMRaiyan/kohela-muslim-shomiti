@@ -107,6 +107,32 @@ export default function NewsCarousel({ items }: { items: NewsCardData[]}){
                     className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[var(--color-sage-line)]
                     items-center justify-center text-[var(--color-forest)] hover:bg-[var(--color-paper-warm)] z-10"
                 >
+
+                    <ChevronLeft size={18} />
+                </button>
+
+                <button
+                    onClick={() => goTo(activeIndex + 1)}
+                    aria-label="Next"
+                    className="hidden sm-flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border-[var(--color-sage-line)] items-center justify-center
+                    text-[var(--color-forest)] hover:bg-[var(--color-paper-warm)] z-10"
+                    >
+                        <ChevronRight size={18} />
+                </button>
+
+                <div className="flex justify-center gap-2 mt-5">
+                    {items.map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => goTo(i)}
+                        aria-label={`Go to slide ${i + 1}`}
+                    className={`h-2 rounded-full transotion-all ${i === activeIndex ? "w-6 bg-[var(--color-gold)]" : "w-2 bg-[var(--color-sage-line)]"
+                    }`}
+                    />
+                    ))}
+                </div>
+                </>
             )}
+        </div>
     )
 }
