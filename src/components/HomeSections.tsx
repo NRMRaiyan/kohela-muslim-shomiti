@@ -46,7 +46,7 @@ export default function HomeSections({
         ) : (
           <NewsCarousel items={latestNews} />
         )}
-        
+
         <Link href="/news" className="sm:hidden mt-6 inline-block text-sm font-semibold text-[var(--color-forest)]">
           {t("view_all")} →
         </Link>
@@ -83,11 +83,18 @@ export default function HomeSections({
             {upcomingEvents.length === 0 ? (
               <EmptyState message={t("no_items")} />
             ) : (
+              // <div className="grid sm:grid-cols-2 gap-5">
+              //   {upcomingEvents.slice(0, 4).map((e) => (
+              //     <EventCard key={e.id} item={e} />
+              //   ))}
+              // </div>
+
               <div className="grid sm:grid-cols-2 gap-5">
-                {upcomingEvents.slice(0, 4).map((e) => (
+                {upcomingEvents.map((e) => (
                   <EventCard key={e.id} item={e} />
-                ))}
+                  ))}
               </div>
+              
             )}
           </div>
         </div>
