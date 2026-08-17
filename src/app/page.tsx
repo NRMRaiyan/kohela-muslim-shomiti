@@ -6,8 +6,8 @@ export default async function HomePage() {
   const [settings, news, notices, events] = await Promise.all([
     getSettings(),
     getLatestNews(10),
-    getLatestNotices(5, true),
-    getUpcomingEvents(4),
+    getLatestNotices(3, true),
+    getUpcomingEvents(2),
   ]);
 
   return (
