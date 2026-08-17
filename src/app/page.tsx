@@ -5,7 +5,7 @@ import { getSettings, getLatestNews, getLatestNotices, getUpcomingEvents } from 
 export default async function HomePage() {
   const [settings, news, notices, events] = await Promise.all([
     getSettings(),
-    getLatestNews(6),
+    getLatestNews(10),
     getLatestNotices(5, true),
     getUpcomingEvents(4),
   ]);

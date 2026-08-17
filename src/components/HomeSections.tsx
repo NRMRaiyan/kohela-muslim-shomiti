@@ -7,6 +7,7 @@ import EmptyState from "./EmptyState";
 import NewsCard, { NewsCardData } from "./NewsCard";
 import NoticeCard, { NoticeCardData } from "./NoticeCard";
 import EventCard, { EventCardData } from "./EventCard";
+import NewsCarousel from "./NewsCarousel";
 import { navLinks } from "@/lib/site-config";
 
 export default function HomeSections({
@@ -30,7 +31,7 @@ export default function HomeSections({
           viewAllHref="/news"
           viewAllLabel={t("view_all")}
         />
-        {latestNews.length === 0 ? (
+        {/* {latestNews.length === 0 ? (
           <EmptyState message={t("no_items")} />
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -38,7 +39,14 @@ export default function HomeSections({
               <NewsCard key={n.slug} item={n} />
             ))}
           </div>
+        )} */}
+
+        {latestNews.length === 0 ? (
+          <EmptyState message={t("no_items")} />
+        ) : (
+          <NewsCarousel items={latestNews} />
         )}
+        
         <Link href="/news" className="sm:hidden mt-6 inline-block text-sm font-semibold text-[var(--color-forest)]">
           {t("view_all")} →
         </Link>
