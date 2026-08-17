@@ -107,14 +107,13 @@ export default function NewsCarousel({ items }: { items: NewsCardData[]}){
                     className="hidden sm:flex absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border border-[var(--color-sage-line)]
                     items-center justify-center text-[var(--color-forest)] hover:bg-[var(--color-paper-warm)] z-10"
                 >
-
                     <ChevronLeft size={18} />
                 </button>
 
                 <button
                     onClick={() => goTo(activeIndex + 1)}
                     aria-label="Next"
-                    className="hidden sm-flex absolute -right-6 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border-[var(--color-sage-line)] items-center justify-center
+                    className="hidden sm:flex absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-md border-[var(--color-sage-line)] items-center justify-center
                     text-[var(--color-forest)] hover:bg-[var(--color-paper-warm)] z-10"
                     >
                         <ChevronRight size={18} />
